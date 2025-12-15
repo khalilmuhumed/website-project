@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta + responsiivisuus -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Khalil</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Khalil</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰ Menu</button>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link active" href="projects.html">Projects</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="page-title">Projects</h1>
+      <p class="lead">
+        A simple portfolio section. Cards below use Grid + hover transitions.
+      </p>
+
+      <!-- Grid layout -->
+      <div class="project-grid">
+
+        <article class="project-card">
+          <h2>Workshop Projects</h2>
+          <p>HTML/CSS workshops: layouts, responsive design, advanced CSS effects.</p>
+          <ul class="pseudo-list">
+            <!-- :nth-child zebra styling CSS:ssä -->
+            <li>Workshop 2 — CSS Fundamentals</li>
+            <li>Workshop 3 — Advanced CSS</li>
+            <li>Workshop 4 — Layout Techniques</li>
+            <li>Workshop 5 — Responsive Design</li>
+          </ul>
+          <a class="btn btn-small" href="index.html">Back to Home</a>
+        </article>
+
+        <article class="project-card">
+          <h2>Train Timetable App</h2>
+          <p>Native JavaScript + APIs (Digitraffic). Focus on AJAX and UI updates.</p>
+          <div class="tag-row">
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+            <span class="tag">AJAX</span>
+          </div>
+          <a class="btn btn-small btn-ghost" href="contact.html">Ask for demo</a>
+        </article>
+
+        <article class="project-card">
+          <h2>Bootstrap Practice</h2>
+          <p>Using Bootstrap components and grid to build responsive pages quickly.</p>
+          <div class="tag-row">
+            <span class="tag">Bootstrap</span>
+            <span class="tag">Responsive</span>
+            <span class="tag">UI</span>
+          </div>
+          <a class="btn btn-small" href="about.html">About me</a>
+        </article>
+
+      </div>
+
+      <!-- CSS Animation demo box -->
+      <section class="section">
+        <h2 class="section-title">Small CSS animation demo</h2>
+        <p class="muted">A tiny animated box using @keyframes.</p>
+        <div class="animation-box" aria-hidden="true"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Khalil Muhumed</p>
+      <p class="muted">Projects page uses grid cards, zebra list, and a small animation.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

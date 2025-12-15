@@ -1,0 +1,554 @@
+/* =========================================================
+   GLOBAL STYLES
+   - Selittää perusilmeen: fontit, värit, spacing, layout
+   ========================================================= */
+
+/* box-sizing tekee leveyslaskennan järkeväksi */
+* {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    /* CSS-muuttujat: helppo yhtenäinen teema */
+    --bg: #0b1020;
+    --panel: rgba(255, 255, 255, 0.06);
+    --text: #e9ecf1;
+    --muted: rgba(233, 236, 241, 0.75);
+    --accent: #6ea8fe;
+    --accent2: #86efac;
+    --border: rgba(255, 255, 255, 0.12);
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+  
+    /* tausta: gradient + pehmeä fiilis */
+    background: radial-gradient(1200px 600px at 20% 10%, rgba(110,168,254,0.25), transparent 60%),
+                radial-gradient(900px 500px at 80% 0%, rgba(134,239,172,0.18), transparent 55%),
+                var(--bg);
+    line-height: 1.6;
+  }
+  
+  img {
+    /* Kuvien perusresponsiivisuus */
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Container keskittää sisällön ja rajoittaa leveyttä */
+  .container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+  }
+  
+  /* Yleiset typografiat */
+  .page-title {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    margin: 0 0 8px;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+    margin: 0 0 12px;
+  }
+  
+  .lead {
+    color: var(--muted);
+    margin-top: 0;
+  }
+  
+  .muted {
+    color: var(--muted);
+  }
+  
+  /* =========================================================
+     HEADER + NAVIGATION
+     - Selkeä navigointi kaikilla sivuilla
+     - Mobiilissa: menu-nappi näyttää/piilottaa linkit (JS)
+     ========================================================= */
+  
+  .site-header {
+    position: sticky; /* pysyy ylhäällä kun scrollaat */
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    background: rgba(11, 16, 32, 0.65);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    gap: 12px;
+  }
+  
+  .brand {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.1rem;
+  }
+  
+  /* Navigaatiolinkit */
+  .site-nav {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: var(--muted);
+    padding: 8px 10px;
+    border-radius: 10px;
+  
+    /* Transition: hover pehmeästi */
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+  }
+  
+  .nav-link:hover {
+    background: var(--panel);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+  
+  .nav-link.active {
+    background: rgba(110,168,254,0.18);
+    color: var(--text);
+    border: 1px solid rgba(110,168,254,0.25);
+  }
+  
+  /* Mobiilinappi piilossa desktopilla */
+  .nav-toggle {
+    display: none;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  
+  /* =========================================================
+     HERO
+     - Grid-layout: tekstiblokki + kuva vierekkäin
+     ========================================================= */
+  
+  .hero {
+    padding: 44px 0 24px;
+  }
+  
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+    align-items: center;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.1rem, 3.2vw, 3rem);
+    line-height: 1.1;
+    margin: 0 0 10px;
+  }
+  
+  .hero-lead {
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  
+  .hero-media {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px;
+  }
+  
+  .caption {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  
+  /* =========================================================
+     BUTTONS (natiivi)
+     ========================================================= */
+  
+  .button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: var(--panel);
+  
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  .btn-primary {
+    background: rgba(110,168,254,0.22);
+    border-color: rgba(110,168,254,0.35);
+  }
+  
+  .btn-ghost {
+    background: transparent;
+  }
+  
+  .btn-small {
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+  
+  /* =========================================================
+     QUOTE
+     - ::before lisää “koriste-merkin”
+     ========================================================= */
+  
+  .quote {
+    position: relative;
+    padding-left: 22px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-style: italic;
+  }
+  
+  .quote::before {
+    content: "“";
+    position: absolute;
+    left: 0;
+    top: -6px;
+    font-size: 44px;
+    color: rgba(255,255,255,0.18);
+  }
+  
+  /* =========================================================
+     CARDS (Home)
+     ========================================================= */
+  
+  .section {
+    padding: 26px 0;
+  }
+  
+  .cards {
+    display: grid; /* (WS4) Grid */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+  }
+  
+  /* =========================================================
+     ABOUT PAGE GRID
+     ========================================================= */
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+    align-items: start;
+  }
+  
+  .media-box {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 12px;
+  }
+  
+  /* Listan ulkoasu */
+  .pretty-list {
+    margin: 8px 0 14px;
+    padding-left: 18px;
+  }
+  
+  .text-link {
+    color: var(--accent);
+  }
+  
+  /* =========================================================
+     TABLE STYLING
+     ========================================================= */
+  
+  .table-wrap {
+    overflow-x: auto; /* jos mobiilissa on ahdas */
+  }
+  
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+  
+  .styled-table th {
+    background: rgba(255,255,255,0.06);
+  }
+  
+  /* =========================================================
+     PROJECTS GRID + HOVER TRANSITIONS
+     ========================================================= */
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+  
+  .project-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+  
+    /* hover transition */
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(110,168,254,0.35);
+  }
+  
+  /* pseudo-class zebra list */
+  .pseudo-list {
+    padding-left: 18px;
+    margin: 10px 0 14px;
+  }
+  
+  .pseudo-list li:nth-child(odd) {
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 6px 8px;
+  }
+  
+  .pseudo-list li:nth-child(even) {
+    padding: 6px 8px;
+  }
+  
+  /* Tagit */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0 14px;
+  }
+  
+  .tag {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.04);
+  }
+  
+  /* =========================================================
+     CSS ANIMATION BOX
+     ========================================================= */
+  
+  .animation-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: rgba(134,239,172,0.25);
+    border: 1px solid rgba(134,239,172,0.35);
+    position: relative;
+  
+    animation: move 2s infinite alternate ease-in-out;
+  }
+  
+  @keyframes move {
+    from { left: 0; }
+    to   { left: 140px; }
+  }
+  
+  /* =========================================================
+     CONTACT FORM
+     ========================================================= */
+  
+  .contact-form {
+    max-width: 680px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 16px;
+  }
+  
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+  
+  label {
+    font-weight: 700;
+  }
+  
+  input,
+  textarea {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0,0,0,0.18);
+    color: var(--text);
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: 2px solid rgba(110,168,254,0.35);
+    border-color: rgba(110,168,254,0.35);
+  }
+  
+  /* Sama responsive-container/column uudelleenkäyttö */
+  .responsive-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .column {
+    flex: 1;
+    min-width: 240px;
+  }
+  
+  .info-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px;
+  }
+  
+  /* =========================================================
+     IMAGE FILTER
+     - grayscale oletuksena, hover palauttaa värit
+     ========================================================= */
+  
+  .filter-image {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+  
+  .filter-image:hover {
+    filter: grayscale(0%);
+  }
+  
+  /* Kuvakääre */
+  .image-wrapper {
+    max-width: 700px;
+    margin: 12px auto 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 12px;
+  }
+  
+  .responsive-image {
+    border-radius: 14px;
+    display: block;
+  }
+  
+  /* =========================================================
+     FOOTER
+     ========================================================= */
+  
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 30px;
+    background: rgba(11, 16, 32, 0.6);
+  }
+  
+  .footer-inner {
+    padding: 18px 0;
+  }
+  
+  /* =========================================================
+     RESPONSIVE BREAKPOINTS
+     - Mobiilissa: grid pinoutuu, nav muuttuu menu-napiksi
+     ========================================================= */
+  
+  /* Tablet / pienempi */
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Mobiili */
+  @media (max-width: 600px) {
+    /* Nav: piilotetaan linkit oletuksena ja näytetään menu-nappi */
+    .nav-toggle {
+      display: inline-block;
+    }
+  
+    .site-nav {
+      display: none; /* JS togglaa tämän näkyviin */
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding-top: 8px;
+    }
+  
+    /* Kun bodyssa on .nav-open, nav näkyy */
+    body.nav-open .site-nav {
+      display: flex;
+    }
+  
+    .header-inner {
+      flex-wrap: wrap;
+    }
+  
+    .animation-box {
+      /* mobiilissa lyhyempi liike ettei karkaa */
+      animation: moveMobile 2s infinite alternate ease-in-out;
+    }
+  
+    @keyframes moveMobile {
+      from { left: 0; }
+      to   { left: 90px; }
+    }
+  }
+  

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Perusmeta + responsiivisuus mobiilissa -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Khalil — Personal Website</title>
+
+  <!-- Ulkoinen CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- header + navigaatio joka näkyy kaikilla sivuilla -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- linkki etusivulle -->
+      <a class="brand" href="index.html">Khalil</a>
+
+      <!-- Mobiilivalikko-nappi: JS togglaa menun näkyvyyden -->
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        ☰ Menu
+      </button>
+
+      <!-- Selkeä nav kaikkiin sivuihin -->
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero-osio: iso otsikko + kuva + call-to-action -->
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-text">
+          <h1 class="hero-title">A clean, responsive website built with native HTML & CSS.</h1>
+
+          <p class="hero-lead">
+            This site demonstrates core web skills from the workshops: semantic structure, responsive layout,
+            Flexbox/Grid, transitions, and accessible navigation.
+          </p>
+
+          <!-- CTA-napit hover + transition -->
+          <div class="button-row">
+            <a class="btn btn-primary" href="projects.html">View Projects</a>
+            <a class="btn btn-ghost" href="contact.html">Contact Me</a>
+          </div>
+
+          <!-- Blockquote + pseudo-element koristemerkki CSS:ssä -->
+          <blockquote class="quote">
+            Keep it simple.
+          </blockquote>
+        </div>
+
+        <!-- Responsiivinen kuva: skaalautuu containerin mukaan -->
+        <div class="hero-media">
+          <img
+            class="responsive-image filter-image"
+            src="images/khalil1.jpeg"
+            alt="Khalil portrait image"
+          >
+          <!-- CSS lisää grayscale ja hover palauttaa värit -->
+          <p class="caption">Hover the image to remove grayscale.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Feature-cards: 3 korttia Gridillä -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">What this site includes</h2>
+
+        <!-- CSS Grid: 3 korttia desktopilla, pinoutuu mobiilissa -->
+        <div class="cards">
+          <article class="card">
+            <h3>Responsive Layout</h3>
+            <p>Mobile-first layout using Grid/Flex + media queries for clean scaling.</p>
+          </article>
+
+          <article class="card">
+            <h3>UI Effects</h3>
+            <p>Transitions, hover states, and CSS filters to make the UI feel modern.</p>
+          </article>
+
+          <article class="card">
+            <h3>Accessible Structure</h3>
+            <p>Semantic HTML, clear navigation, and readable spacing across pages.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer näkyy kaikilla sivuilla -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Khalil Muhumed</p>
+      <p class="muted">Built with native HTML, CSS and a tiny bit of JavaScript for the mobile menu.</p>
+    </div>
+  </footer>
+
+  <!-- JS: mobiilivalikon toggle -->
+  <script src="js/main.js"></script>
+</body>
+</html>
