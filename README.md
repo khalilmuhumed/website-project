@@ -63,10 +63,10 @@ khalil3.jpeg
 ## Live Demo
 
 GitHub Pages:  
-(add published website link here)
+https://khalilmuhumed.github.io/website-project/ 
 
 GitHub Repository:  
-(add GitHub repository link here)
+https://github.com/khalilmuhumed/website-project.git
 
 ---
 
